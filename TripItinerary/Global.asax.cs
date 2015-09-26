@@ -8,6 +8,7 @@ using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
 using DatabaseMigrations;
+using FluentValidation.Mvc;
 
 namespace TripItinerary
 {
@@ -20,6 +21,7 @@ namespace TripItinerary
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             new DatabaseMigrator().Migrate();
+            FluentValidationModelValidatorProvider.Configure();
         }
     }
 }
